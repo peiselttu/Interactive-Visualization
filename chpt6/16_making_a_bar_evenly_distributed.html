@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>16_Making_a_Bar_Char_Distributed_Evenly</title>
+		<script type="text/javascript" src="../d3/d3.js"></script>
+	</head>
+	<body>
+		<script type="text/javascript">
+				var dataset=[];
+				for(var i=0;i<400;i++){
+					dataset.push(Math.random()*21)
+				}
+				var h=150;
+				var w=1300;
+				
+				var svg=d3.select('body').append('svg')
+						  .attr('height',h)
+						  .attr('width',w)
+				svg.selectAll('rect')
+				   .data(dataset)
+				   .enter()
+				   .append('rect')
+				   .attr('x',function(d,i){
+										return i*(w/dataset.length)
+										})
+				   .attr('y',function(d){
+										return h-d*8;
+										})
+				   .attr('width',w/dataset.length-2)
+				   .attr('height',function(d){return d*8})
+				   .attr('fill',"teal")
+		</script>
+	</body>
+</html>

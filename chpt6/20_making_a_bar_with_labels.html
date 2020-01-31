@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>20_making_a_Bar_With_Labels</title>
+		<script type="text/javascript" src="../d3/d3.js"></script>
+	</head>
+	<body>
+		<script type="text/javascript">
+			var dataset=[]
+			var h=150
+			var w=1500
+			
+			for(var i=0;i<50;i++){
+				dataset.push(Math.random()*30)
+			}
+			
+			var svg=d3.select('body').append('svg')
+					  .attr('height',h)
+					  .attr('width',w)
+					  
+					 svg.selectAll('rect')
+						.data(dataset)
+						.enter()
+						.append('rect')
+						.attr('x',function(d,i){
+									return i*(w/dataset.length);
+												})
+						.attr('y',function(d){
+									return h-8*d;
+											})
+						.attr('width',20)
+						.attr('height',function(d){
+									return d*8;
+												})
+						.attr('fill',function(d){
+									return 'rgb(0,0,'+Math.round(d*10)+')'})
+					svg.selectAll('text')
+					   .data(dataset)
+					   .enter()
+					   .append('text')
+					   .text(function(d){
+								return Math.round(d);
+									})
+					   .attr('x',function(d,i){
+									return i*(w/dataset.length)
+										})
+					   .attr('y',function(d){
+									return Math.round(h-7*d);
+											})
+					   .attr('font-family','sans-serif')
+					   .attr('font-size',"11px")
+					   .attr('fill',"white")
+					   .attr('text-anchor','middle')
+					   .attr('x',function(d,i){
+								return i*(w/dataset.length)
+						})
+		</script>	
+	</body>
+</html>
