@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>01_Axes</title>
+		<script type="text/javascript" src="../d3/d3.js"></script>
+	</head>
+	<body>
+		<script type="text/javascript">
+			var dataset=[[25,67],[5,20],[100,33],[85,21],
+						[220,88],[250,50],[330,95],[480,90],
+						[475,44],[410,12],[600,150]];
+			var w=1250;
+			var h=700;
+			
+			var xScale=d3.scaleLinear()
+						 .domain([d3.min(dataset,function(d){
+							return d[0];
+						 }),
+						 d3.max(dataset,function(d){
+							return d[0];
+						 })])
+						 .range([50,1000])
+			var yScale=d3.scaleLinear()
+						 .domain([d3.min(dataset,function(d){
+							return d[1];
+						 }),d3.max(dataset,function(d){
+							return d[1]
+						 })])
+						 .range([50,h])
+						 
+			var rScale=d3.scaleSqrt()
+						 .domain([0,d3.max(dataset,function(d){
+								return d[1]
+						 })])
+						 .range([2,10])
+			
+			var xAxis=d3.axisBottom()
+						.scale(xScale)
+						
+			var svg=d3.selectAll('body')
+					  .append('svg')
+					  .attr('width',w)
+					  .attr('height',h);
+					  
+				svg.selectAll('circle')
+				   .data(dataset)
+				   .enter()
+				   .append('circle')
+				   .attr('cx',function(d){
+							return xScale(d[0])
+				   })
+				   .attr('cy',function(d){
+							return yScale(d[1]);
+				   })
+				   .attr('r',function(d){
+							return rScale(d[1]);
+				   })
+				   .attr('fill','red')
+				   
+				 svg.selectAll('text')
+				    .data(dataset)
+					.enter()
+					.append('text')
+					.attr('x',function(d){
+							return xScale(d[0])
+					})
+					.attr('y',function(d){
+							return yScale(d[1])
+					})
+					.text(function(d){
+						return Math.round(xScale(d[0]))+","+Math.round(yScale(d[1]))
+					})
+					.attr('fill','green')
+					.attr('font-size','11px')
+					
+				   
+				   
+				svg.append('g')
+				   .call(xAxis)
+					
+		</script>
+	</body>
+</html>
