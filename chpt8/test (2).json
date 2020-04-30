@@ -1,0 +1,27 @@
+{
+	"nodes":[{"id":"2",
+		  "name":"Australia",
+		  "cluster":"Australia",
+		  "value":8},
+		 {"id":"2",
+		  "name":"Belgium",
+		  "cluster":"Belgium",
+		  "value":1},
+		 {"id":"3",
+		  "name":"Ecuador",
+		  "cluster":"Ecuador",
+		  "value":10}],
+	"edges":[{"Source":"2",
+		  "Target":"2",
+		  "SourceWeight":12
+		  "TargetWeight":12},
+		 {"Source":"2",
+		  "Target":"3",
+		  "SourceWeight":12
+		  "TargetWeight":12},
+		 {"Source":"3",
+		  "Target":"1",
+		  "SourceWeight":12
+		  "TargetWeight":12}]
+
+}
