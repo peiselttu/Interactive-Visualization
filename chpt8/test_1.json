@@ -13,7 +13,7 @@
 		  "value":10}],
 	"edges":[{"Source":"2",
 		  "Target":"2",
-		  "SourceWeight":12
+		  "SourceWeight":12,
 		  "TargetWeight":12},
 		 {"Source":"2",
 		  "Target":"3",
