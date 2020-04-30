@@ -17,11 +17,11 @@
 		  "TargetWeight":12},
 		 {"Source":"2",
 		  "Target":"3",
-		  "SourceWeight":12
+		  "SourceWeight":12,
 		  "TargetWeight":12},
 		 {"Source":"3",
 		  "Target":"1",
-		  "SourceWeight":12
+		  "SourceWeight":12,
 		  "TargetWeight":12}]
 
 }
